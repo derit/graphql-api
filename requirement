@@ -1,0 +1,34 @@
+user :
+    - firstname
+    - lastname
+    - birthday
+    - company
+    - password
+
+company:
+    - name
+    - creationDate
+    - users
+
+Mandatory:
+    addCompany(name, creationDate, users)
+    getCompanyById(ID) -> company
+    getCompanies -> [company]
+    getUsers -> [user]
+    addUser(firstname, lastname, birthday, company, password) -> user
+
+Good to have:
+getUser(fetch id from the token) -> user
+loginUser(firstname, password) -> token, userId
+
+getCompanyById(_id: "0a1cdcjuhicechuih0864") {
+    _id
+    name
+    creationDate
+    users {
+        firstname
+        company {
+            name
+        }
+    }
+}

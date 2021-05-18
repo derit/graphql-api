@@ -1,0 +1,116 @@
+
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+mutation {
+  addCompany(name:"dasdas",creationDate:"2021-05-18T05:16:43.147Z") { 
+    _id
+    name
+    creationDate 
+  }
+}
+###
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+query {
+  getCompanyById(id:"60a35d2dd3a08d0f70007f52") {
+     _id
+    name
+    creationDate
+    users {
+        firstname
+        company {
+            _id
+            name
+        }
+    }
+  }
+}
+
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+query {
+  getCompanies {
+    _id
+    name
+    creationDate
+    users {
+        firstname
+        company {
+            _id
+            name
+        }
+    }
+  }
+}
+ 
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+mutation {
+  addUser(firstname:"2222",lastname:"dasdas",birthday:"2021-05-18T05:16:43.147Z",company:"60a35d2dd3a08d0f70007f52",password:"1223") { 
+    _id
+    firstname
+    lastname
+    birthday
+    password
+    company{
+        name
+    }
+  }
+}
+ 
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+query {
+  getUsers {
+    _id
+    firstname
+    lastname
+    company{
+        _id
+        name
+    }
+  }
+}
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+query {
+  getUser(usertoken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGEzNzRlZmVkN2IxMTE5MzBkMDgxZWUiLCJpYXQiOjE2MjEzMjUxMTR9.k7qapBUIAkb9PYmaXEFMLDlnr3IrbiI7BP7VYkclwok") {
+    _id
+    firstname
+    lastname
+    company{
+        _id
+        name
+    }
+  }
+}
+ 
+### 
+POST http://localhost:9000/graphql
+Content-Type: application/json 
+X-Request-Type: GraphQL
+
+mutation {
+  loginUser(firstname:"2222",password:"1223") { 
+    userId
+    token
+  }
+}
+ 
